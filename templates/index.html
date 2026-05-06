@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spam Sentinel | AI Email Detection</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="background-elements">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+        <div class="blob blob-3"></div>
+    </div>
+
+    <main class="container">
+        <header class="header">
+            <div class="logo">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z" stroke="url(#paint0_linear)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M12 16V12" stroke="url(#paint0_linear)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M12 8H12.01" stroke="url(#paint0_linear)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <defs>
+                        <linearGradient id="paint0_linear" x1="2" y1="2" x2="22" y2="22" gradientUnits="userSpaceOnUse">
+                            <stop stop-color="#4F46E5"/>
+                            <stop offset="1" stop-color="#EC4899"/>
+                        </linearGradient>
+                    </defs>
+                </svg>
+                <h1>Spam Sentinel</h1>
+            </div>
+            <p class="subtitle">AI-powered email classification</p>
+        </header>
+
+        <section class="glass-panel">
+            <form id="spamForm">
+                <div class="input-group">
+                    <label for="emailContent">Email Content</label>
+                    <textarea 
+                        id="emailContent" 
+                        placeholder="Paste the email content here to analyze..." 
+                        required
+                    ></textarea>
+                </div>
+                
+                <button type="submit" id="analyzeBtn" class="btn-primary">
+                    <span class="btn-text">Analyze Email</span>
+                    <span class="btn-loader"></span>
+                </button>
+            </form>
+
+            <div id="resultContainer" class="result-container hidden">
+                <div class="result-card">
+                    <div class="result-icon-wrapper" id="resultIcon">
+                        <!-- Icon injected by JS -->
+                    </div>
+                    <div class="result-details">
+                        <h2 id="resultLabel">Analysis Complete</h2>
+                        <div class="confidence-wrapper">
+                            <span>Confidence Score</span>
+                            <div class="progress-bar">
+                                <div id="confidenceBar" class="progress-fill"></div>
+                            </div>
+                            <span id="confidenceText" class="confidence-text">0%</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <footer>
+            <p>&copy; 2026 Spam Sentinel. Powered by Deep Learning.</p>
+        </footer>
+    </main>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
