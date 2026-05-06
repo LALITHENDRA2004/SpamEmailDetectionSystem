@@ -7,7 +7,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="./style.css">
 </head>
 <body>
     <div class="background-elements">
@@ -69,6 +69,10 @@
                     </div>
                 </div>
             </div>
+            
+            <div id="serverStatus" class="status-msg hidden">
+                <p>Waking up AI server... This may take a few seconds.</p>
+            </div>
         </section>
         
         <footer>
@@ -76,6 +80,21 @@
         </footer>
     </main>
 
-    <script src="{{ url_for('static', filename='script.js') }}"></script>
+    <script src="./script.js"></script>
+    <style>
+        .status-msg {
+            margin-top: 1rem;
+            text-align: center;
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            animation: pulse 2s infinite;
+        }
+        @keyframes pulse {
+            0% { opacity: 0.5; }
+            50% { opacity: 1; }
+            100% { opacity: 0.5; }
+        }
+        .hidden { display: none !important; }
+    </style>
 </body>
 </html>
